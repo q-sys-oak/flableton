@@ -1,0 +1,11 @@
+{
+  "name": "FLABLETON",
+  "short_name": "FLABLETON",
+  "description": "Make music anywhere: beats, recording, auto-tune and mixing.",
+  "start_url": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0f1013",
+  "theme_color": "#16181d",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
