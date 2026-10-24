@@ -1,4 +1,4 @@
-# FLABLETON
+# Beatwise
 
 **Make music anywhere.** Load a beat, punch in your vocals, auto-tune them, mix, and export. It runs in Chrome on a computer, or in your phone's browser.
 
@@ -12,4 +12,4 @@ Quick start:
 2. Go to **🎙 Record**, tap **Allow mic**, then **+ Lead**.
 3. Hit **●** to record. Stop and it jumps back, so you can punch in the next take or tap **Redo last take**.
 
-This is a beta. Send feedback to the FLABLETON team.
+This is a beta. Send feedback to the Beatwise team.
