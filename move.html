@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Moving to Barline</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; background: #0f1013; color: #e8ecff; font: 17px/1.6 system-ui, -apple-system, sans-serif; display: grid; place-items: center; min-height: 100vh; }
+  main { max-width: 520px; padding: 24px 16px; text-align: center; }
+  h1 { font-size: 26px; }
+  a, button { color: #0f1013; background: #38e8ff; border: 0; border-radius: 10px; padding: 12px 18px; font: inherit; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 12px; }
+  .dim { color: #9aa4b2; }
+</style>
+</head>
+<body>
+<main>
+<h1 id="title">🏠 Moving to Barline…</h1>
+<p id="say">Getting your songs from the old link. Keep this page open.</p>
+<p id="go"></p>
+</main>
+<script>
+/*
+ * The other half of src/ui/moving.ts. The old link (flableton.pages.dev) opens this page and sends what it
+ * kept; it's written here, under the new names, and then the app opens with it. Only the old link's
+ * messages are taken.
+ */
+(function () {
+  var OLD = ["https://flableton.pages.dev", "https://q-sys-oak.github.io"];
+  var title = document.getElementById("title"), say = document.getElementById("say"), go = document.getElementById("go");
+  function show(t, s, button) {
+    title.textContent = t; say.textContent = s;
+    go.replaceChildren();
+    if (button) { var a = document.createElement("a"); a.href = "./"; a.textContent = button; go.append(a); }
+  }
+  var opener = window.opener, from = null;
+  if (!opener) return show("🏠 Barline's new home", "To bring your songs here, open the old link (flableton.pages.dev) and tap “Move my songs there”.", "Open Barline");
+  for (var i = 0; i < OLD.length; i++) opener.postMessage({ type: "barline-ready" }, OLD[i]);
+
+  var newName = function (k) {
+    var olds = ["flableton.", "beatwise."];
+    for (var i = 0; i < olds.length; i++) if (k.indexOf(olds[i]) === 0) return "barline." + k.slice(olds[i].length);
+    return k;
+  };
+  function put(db) {
+    return new Promise(function (resolve, reject) {
+      var r = indexedDB.open(db.name, db.version);
+      r.onupgradeneeded = function () {
+        db.stores.forEach(function (s) {
+          if (!r.result.objectStoreNames.contains(s.name)) r.result.createObjectStore(s.name, s.keyPath === null ? { autoIncrement: s.autoIncrement } : { keyPath: s.keyPath, autoIncrement: s.autoIncrement });
+        });
+      };
+      r.onerror = function () { reject(r.error); };
+      r.onsuccess = function () {
+        var d = r.result, names = db.stores.map(function (s) { return s.name; }).filter(function (n) { return d.objectStoreNames.contains(n); });
+        if (!names.length) { d.close(); return resolve(); }
+        var tx = d.transaction(names, "readwrite");
+        db.stores.forEach(function (s) {
+          if (names.indexOf(s.name) < 0) return;
+          var os = tx.objectStore(s.name);
+          s.values.forEach(function (v, i) { if (s.keyPath === null) os.put(v, s.keys[i]); else os.put(v); });
+        });
+        tx.oncomplete = function () { d.close(); resolve(); };
+        tx.onerror = function () { d.close(); reject(tx.error); };
+      };
+    });
+  }
+
+  addEventListener("message", function (e) {
+    if (OLD.indexOf(e.origin) < 0 || e.source !== opener || !e.data || e.data.type !== "barline-move" || from) return;
+    from = e.origin;
+    var local = e.data.local || {}, dbs = e.data.dbs || [];
+    var here = null;
+    try { here = localStorage.getItem("barline.autosave"); } catch (_) {}
+    var bringsSong = local["barline.autosave"] !== undefined || local["flableton.autosave"] !== undefined;
+    if (here && bringsSong && !confirm("The new link already has a song open. Replace it with the song from the old link? (Its backups and sounds are kept either way.)")) {
+      ["flableton.autosave", "beatwise.autosave", "barline.autosave"].forEach(function (k) { delete local[k]; });
+    }
+    try {
+      // old names first, so the old link's current "barline." ones win over its stale copies
+      var keys = Object.keys(local), old = keys.filter(function (k) { return newName(k) !== k; });
+      old.concat(keys.filter(function (k) { return newName(k) === k; })).forEach(function (k) { localStorage.setItem(newName(k), local[k]); });
+    } catch (err) {
+      opener.postMessage({ type: "barline-failed", why: "this browser's storage is full" }, from);
+      return show("😕 It didn't move", "This browser's storage is full. On the old link, save your song (☰ → Save) and open the file here.", "Open Barline");
+    }
+    Promise.all(dbs.map(put)).then(function () {
+      opener.postMessage({ type: "barline-moved" }, from);
+      show("✅ Moved!", "Your songs, sounds and progress are here now. From now on, use this link (on a phone, add it to your home screen again).", "Open Barline");
+      setTimeout(function () { location.replace("./"); }, 2500);
+    }, function (err) {
+      opener.postMessage({ type: "barline-failed", why: String(err && err.message || err) }, from);
+      show("😕 Some of it didn't move", "Your settings and song moved, but not every sound. On the old link, save your song (☰ → Save) and open the file here.", "Open Barline");
+    });
+  });
+  setTimeout(function () { if (!from) show("🏠 Barline's new home", "Nothing came from the old link. Go back to it and tap “Move my songs there” again.", "Open Barline"); }, 15000);
+})();
+</script>
+</body>
+</html>

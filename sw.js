@@ -3,7 +3,7 @@
  * first (so an update shows at once) and use the saved copy only when offline; the build's files have
  * their version in their names, so a saved one is never stale. Nothing else is cached here.
  */
-const CACHE = "beatwise-v1";
+const CACHE = "barline-v1";
 const SHELL = ["./", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
 
 self.addEventListener("install", (e) => {

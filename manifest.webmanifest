@@ -1,7 +1,7 @@
 {
   "id": "./",
-  "name": "Beatwise: learn to make music",
-  "short_name": "Beatwise",
+  "name": "Barline: learn to make music",
+  "short_name": "Barline",
   "description": "Make your first songs, step by step: beats, basslines, chords, melodies, mixing and music theory as games.",
   "start_url": "./",
   "scope": "./",
