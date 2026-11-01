@@ -1,0 +1,4 @@
+# The move banner on the old links checks that the new one is really serving Vamola (src/ui/moving.ts).
+/alive.txt
+  Access-Control-Allow-Origin: *
+  Cache-Control: no-store
