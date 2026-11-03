@@ -7,7 +7,9 @@
 <style>
   :root { color-scheme: dark; }
   body { margin: 0; background: #0f1013; color: #e8ecff; font: 16px/1.6 system-ui, -apple-system, sans-serif; }
-  main { max-width: 720px; margin: 0 auto; padding: 24px 16px 60px; }
+  main { max-width: 720px; margin: 0 auto; padding: 16px 16px 60px; }
+  nav { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 14px; }
+  nav a[aria-current] { color: #e8ecff; font-weight: 600; text-decoration: none; }
   h1 { font-size: 28px; margin-bottom: 4px; }
   h2 { font-size: 19px; margin-top: 28px; color: #38e8ff; }
   .dim { color: #9aa4b2; }
@@ -17,9 +19,10 @@
 </head>
 <body>
 <main>
+<nav aria-label="Language"><a href="?lang=en" data-pick="en" lang="en">English</a><a href="?lang=es" data-pick="es" lang="es">Español</a><a href="?lang=pt" data-pick="pt" lang="pt">Português</a><a href="?lang=fr" data-pick="fr" lang="fr">Français</a><a href="?lang=de" data-pick="de" lang="de">Deutsch</a></nav>
+<section lang="en" data-lang="en">
 <h1>Privacy</h1>
-<p class="dim">Vamola teaches people to make music, from young kids to grown-ups. It's built to collect as little as possible. Last updated: October 2026.</p>
-
+<p class="dim">Vamola teaches people to make music, from young kids to grown-ups. It's built to collect as little as possible. Last updated: November 2026.</p>
 <h2>The short version</h2>
 <ul>
   <li>Your songs, sounds and progress stay <b>on your device</b>.</li>
@@ -27,36 +30,221 @@
   <li>No ads, no tracking, no selling or sharing your information.</li>
   <li>Children can use Vamola without giving any personal information.</li>
 </ul>
-
 <h2>What stays on your device</h2>
 <ul>
   <li>Your songs (saved automatically as you work), backups, your own sounds and recordings.</li>
   <li>Your progress: lessons, stars, XP, the daily challenge streak, practice minutes, and the lesson steps you found tricky.</li>
-  <li>Grown-up settings and the grown-ups' PIN (stored scrambled, not as the number).</li>
+  <li>Your settings, including the language and the grown-ups' PIN (stored scrambled, not as the number).</li>
 </ul>
 <p>We can't see any of this. Clearing the app's data or the browser's site data deletes it.</p>
-
 <h2>What reaches us, and only if you choose to</h2>
 <ul>
   <li><b>An account (optional).</b> Your email address and a sign-in, so your account works on up to 3 of your devices. You can ask us to delete it.</li>
-  <li><b>A report (optional).</b> When you send a problem or an idea with 🐞, we get what you typed and technical details to fix bugs: app version, browser, screen size, audio settings and recent error messages. No audio, no song, no name.</li>
+  <li><b>A report (optional).</b> When you send a problem or an idea with 🐞, we get what you typed and technical details to fix bugs: app version, browser, language, screen size, audio settings and recent error messages. No audio, no song, no name.</li>
 </ul>
-
 <h2>Anonymous lesson counts</h2>
 <p>When a lesson step is hard (it takes a while, taps miss, or "Help me" is pressed), the app counts it so we can make that step clearer: which lesson and step, why, and whether it was a phone or a computer. There's no name, no account, no device ID and nothing from your song, so it can't be linked to anyone.</p>
-
 <h2>Children</h2>
-<p>Vamola doesn't ask children for personal information. A parent or teacher can open <b>👪 Grown-ups</b> (with their own PIN) to hide sign-in and feedback forms, turn the microphone off, and set a daily time limit. The microphone is only used when you choose to record, and recordings stay on the device.</p>
-<p><b>Read-aloud</b> uses the voice built into your device. Only lesson text is spoken, never anything you type. If a device has no voice of its own, the browser's online voice may be used, which sends the lesson line to the browser maker to be spoken.</p>
-
+<p>Vamola doesn't ask children for personal information. A parent or teacher can open <b>👪 Grown-ups</b> (with their own PIN) to hide sign-in and feedback forms, turn the microphone off, and set a daily time limit. The microphone is only used when you choose to record, and recordings stay on the device.</p><p>Accounts are optional. If you're under 16 (or the age your country sets, which can be 13 to 16), ask a parent before making one.</p><p><b>Read-aloud</b> uses the voice built into your device. Only lesson text is spoken, never anything you type. If a device has no voice of its own, the browser's online voice may be used, which sends the lesson line to the browser maker to be spoken.</p>
+<h2>Your rights</h2>
+<ul>
+  <li>You can ask us for a copy of what we hold about you, ask us to correct it, or ask us to delete it. Write to us and we'll answer within a month.</li>
+  <li>We only use your email address to run your account (because you asked for one) and reports to fix problems (because you sent them).</li>
+  <li>We keep an account until you delete it, and reports only as long as we need them to fix what they describe.</li>
+  <li>If you live in the EU, the UK or another country with privacy laws, you can also complain to your data protection authority.</li>
+</ul>
 <h2>The services we use</h2>
 <ul>
   <li><b>Supabase</b> stores accounts, reports and the anonymous lesson counts.</li>
   <li><b>Cloudflare</b> hosts the app.</li>
+  <li>These services may handle data outside your country.</li>
 </ul>
-
 <h2>Contact</h2>
-<p>Questions, or to delete your account: <a href="mailto:hello@vamola.io">hello@vamola.io</a></p>
+<p>Questions, or to see or delete your data: <a href="mailto:hello@vamola.io">hello@vamola.io</a></p>
+</section>
+<section lang="es" data-lang="es" hidden>
+<h1>Privacidad</h1>
+<p class="dim">Vamola enseña a hacer música a todo el mundo, desde niños pequeños hasta adultos. Está hecha para recoger lo mínimo posible. Última actualización: noviembre de 2026.</p>
+<h2>En resumen</h2>
+<ul>
+  <li>Tus canciones, sonidos y progreso se quedan <b>en tu dispositivo</b>.</li>
+  <li>No necesitas una cuenta. Si creas una, guardamos tu correo electrónico para que puedas iniciar sesión.</li>
+  <li>Sin anuncios, sin rastreo, sin vender ni compartir tu información.</li>
+  <li>Los niños pueden usar Vamola sin dar ningún dato personal.</li>
+</ul>
+<h2>Lo que se queda en tu dispositivo</h2>
+<ul>
+  <li>Tus canciones (se guardan solas mientras trabajas), copias de seguridad, tus propios sonidos y grabaciones.</li>
+  <li>Tu progreso: lecciones, estrellas, XP, la racha del reto diario, los minutos de práctica y los pasos de las lecciones que te costaron.</li>
+  <li>Tus ajustes, incluidos el idioma y el PIN de los adultos (guardado cifrado, no como el número).</li>
+</ul>
+<p>Nosotros no podemos ver nada de esto. Si borras los datos de la app o los datos del sitio en el navegador, se elimina.</p>
+<h2>Lo que nos llega, y solo si tú quieres</h2>
+<ul>
+  <li><b>Una cuenta (opcional).</b> Tu correo electrónico y un inicio de sesión, para que tu cuenta funcione en hasta 3 de tus dispositivos. Puedes pedirnos que la borremos.</li>
+  <li><b>Un informe (opcional).</b> Cuando nos envías un problema o una idea con 🐞, recibimos lo que escribiste y datos técnicos para arreglar errores: versión de la app, navegador, idioma, tamaño de pantalla, ajustes de audio y mensajes de error recientes. Sin audio, sin canción, sin nombre.</li>
+</ul>
+<h2>Recuento anónimo de lecciones</h2>
+<p>Cuando un paso de una lección cuesta (tarda, los toques fallan o se pulsa "Ayúdame"), la app lo cuenta para que podamos hacerlo más claro: qué lección y qué paso, por qué, y si era un móvil o un ordenador. No hay nombre, ni cuenta, ni identificador del dispositivo, ni nada de tu canción, así que no se puede relacionar con nadie.</p>
+<h2>Niños</h2>
+<p>Vamola no pide datos personales a los niños. Un padre, una madre o un profesor puede abrir <b>👪 Adultos</b> (con su propio PIN) para ocultar el inicio de sesión y los formularios de comentarios, apagar el micrófono y poner un límite de tiempo diario. El micrófono solo se usa cuando decides grabar, y las grabaciones se quedan en el dispositivo.</p><p>Las cuentas son opcionales. Si tienes menos de 16 años (o la edad que fije tu país, que puede ser de 13 a 16), pide permiso a tus padres antes de crear una.</p><p><b>Leer en voz alta</b> usa la voz integrada en tu dispositivo. Solo se lee el texto de las lecciones, nunca lo que tú escribes. Si un dispositivo no tiene voz propia, puede usarse la voz en línea del navegador, que envía la frase de la lección a la empresa del navegador para leerla.</p>
+<h2>Tus derechos</h2>
+<ul>
+  <li>Puedes pedirnos una copia de lo que tenemos sobre ti, pedir que lo corrijamos o pedir que lo borremos. Escríbenos y te responderemos en un mes como máximo.</li>
+  <li>Solo usamos tu correo electrónico para que funcione tu cuenta (porque la pediste) y los informes para arreglar problemas (porque nos los enviaste).</li>
+  <li>Guardamos una cuenta hasta que la borras, y los informes solo el tiempo necesario para arreglar lo que cuentan.</li>
+  <li>Si vives en la UE, el Reino Unido u otro país con leyes de privacidad, también puedes reclamar ante tu autoridad de protección de datos.</li>
+</ul>
+<h2>Los servicios que usamos</h2>
+<ul>
+  <li><b>Supabase</b> guarda las cuentas, los informes y el recuento anónimo de lecciones.</li>
+  <li><b>Cloudflare</b> aloja la app.</li>
+  <li>Estos servicios pueden tratar datos fuera de tu país.</li>
+</ul>
+<h2>Contacto</h2>
+<p>Preguntas, o para ver o borrar tus datos: <a href="mailto:hello@vamola.io">hello@vamola.io</a></p>
+</section>
+<section lang="pt" data-lang="pt" hidden>
+<h1>Privacidade</h1>
+<p class="dim">O Vamola ensina todo mundo a fazer música, de crianças pequenas a adultos. Ele foi feito para coletar o mínimo possível. Última atualização: novembro de 2026.</p>
+<h2>Resumindo</h2>
+<ul>
+  <li>Suas músicas, sons e progresso ficam <b>no seu aparelho</b>.</li>
+  <li>Você não precisa de conta. Se criar uma, guardamos seu e-mail para você poder entrar.</li>
+  <li>Sem anúncios, sem rastreamento, sem vender nem compartilhar suas informações.</li>
+  <li>Crianças podem usar o Vamola sem dar nenhuma informação pessoal.</li>
+</ul>
+<h2>O que fica no seu aparelho</h2>
+<ul>
+  <li>Suas músicas (salvas automaticamente enquanto você trabalha), backups, seus próprios sons e gravações.</li>
+  <li>Seu progresso: lições, estrelas, XP, a sequência do desafio diário, os minutos de prática e os passos das lições em que você teve dificuldade.</li>
+  <li>Suas configurações, incluindo o idioma e o PIN dos adultos (guardado embaralhado, não como o número).</li>
+</ul>
+<p>Nós não conseguimos ver nada disso. Apagar os dados do app ou os dados do site no navegador apaga tudo.</p>
+<h2>O que chega até nós, e só se você quiser</h2>
+<ul>
+  <li><b>Uma conta (opcional).</b> Seu e-mail e um login, para a sua conta funcionar em até 3 aparelhos seus. Você pode pedir para apagarmos.</li>
+  <li><b>Um relato (opcional).</b> Quando você envia um problema ou uma ideia com 🐞, recebemos o que você escreveu e detalhes técnicos para corrigir erros: versão do app, navegador, idioma, tamanho da tela, configurações de áudio e mensagens de erro recentes. Sem áudio, sem música, sem nome.</li>
+</ul>
+<h2>Contagem anônima das lições</h2>
+<p>Quando um passo de uma lição é difícil (demora, os toques erram ou alguém aperta "Me ajude"), o app conta isso para podermos deixar o passo mais claro: qual lição e qual passo, por quê, e se era um celular ou um computador. Não há nome, nem conta, nem identificação do aparelho, nem nada da sua música, então não dá para ligar a ninguém.</p>
+<h2>Crianças</h2>
+<p>O Vamola não pede informações pessoais às crianças. Um pai, uma mãe ou um professor pode abrir <b>👪 Adultos</b> (com o próprio PIN) para esconder o login e os formulários de feedback, desligar o microfone e definir um limite de tempo diário. O microfone só é usado quando você escolhe gravar, e as gravações ficam no aparelho.</p><p>Contas são opcionais. Se você tem menos de 16 anos (ou a idade que o seu país definir, que pode ser de 13 a 16), peça a um responsável antes de criar uma.</p><p><b>Ler em voz alta</b> usa a voz que vem no seu aparelho. Só o texto das lições é lido, nunca o que você digita. Se um aparelho não tiver voz própria, pode ser usada a voz on-line do navegador, que envia a frase da lição para a empresa do navegador ler.</p>
+<h2>Seus direitos</h2>
+<ul>
+  <li>Você pode pedir uma cópia do que temos sobre você, pedir para corrigirmos ou para apagarmos. Escreva para nós e responderemos em até um mês.</li>
+  <li>Só usamos seu e-mail para manter sua conta funcionando (porque você pediu uma) e os relatos para corrigir problemas (porque você os enviou).</li>
+  <li>Guardamos uma conta até você apagá-la, e os relatos só pelo tempo necessário para corrigir o que eles descrevem.</li>
+  <li>Se você mora na UE, no Reino Unido, no Brasil ou em outro país com leis de privacidade, também pode reclamar à sua autoridade de proteção de dados.</li>
+</ul>
+<h2>Os serviços que usamos</h2>
+<ul>
+  <li><b>Supabase</b> guarda as contas, os relatos e a contagem anônima das lições.</li>
+  <li><b>Cloudflare</b> hospeda o app.</li>
+  <li>Esses serviços podem tratar dados fora do seu país.</li>
+</ul>
+<h2>Contato</h2>
+<p>Dúvidas, ou para ver ou apagar seus dados: <a href="mailto:hello@vamola.io">hello@vamola.io</a></p>
+</section>
+<section lang="fr" data-lang="fr" hidden>
+<h1>Confidentialité</h1>
+<p class="dim">Vamola apprend à faire de la musique à tout le monde, des jeunes enfants aux adultes. L'appli est conçue pour collecter le moins possible. Dernière mise à jour : novembre 2026.</p>
+<h2>En bref</h2>
+<ul>
+  <li>Tes morceaux, tes sons et ta progression restent <b>sur ton appareil</b>.</li>
+  <li>Tu n'as pas besoin de compte. Si tu en crées un, nous gardons ton adresse e-mail pour que tu puisses te connecter.</li>
+  <li>Pas de pub, pas de pistage, ni vente ni partage de tes informations.</li>
+  <li>Les enfants peuvent utiliser Vamola sans donner aucune information personnelle.</li>
+</ul>
+<h2>Ce qui reste sur ton appareil</h2>
+<ul>
+  <li>Tes morceaux (enregistrés automatiquement pendant que tu travailles), les sauvegardes, tes propres sons et enregistrements.</li>
+  <li>Ta progression : leçons, étoiles, XP, la série du défi du jour, les minutes de pratique et les étapes de leçon qui t'ont posé problème.</li>
+  <li>Tes réglages, y compris la langue et le code PIN des adultes (stocké brouillé, pas sous forme de chiffres).</li>
+</ul>
+<p>Nous ne pouvons rien voir de tout cela. Effacer les données de l'appli ou les données du site dans le navigateur les supprime.</p>
+<h2>Ce qui nous parvient, et seulement si tu le choisis</h2>
+<ul>
+  <li><b>Un compte (facultatif).</b> Ton adresse e-mail et une connexion, pour que ton compte marche sur 3 de tes appareils au maximum. Tu peux nous demander de le supprimer.</li>
+  <li><b>Un rapport (facultatif).</b> Quand tu envoies un problème ou une idée avec 🐞, nous recevons ce que tu as écrit et des détails techniques pour corriger les bugs : version de l'appli, navigateur, langue, taille d'écran, réglages audio et messages d'erreur récents. Pas d'audio, pas de morceau, pas de nom.</li>
+</ul>
+<h2>Comptage anonyme des leçons</h2>
+<p>Quand une étape de leçon est difficile (elle prend du temps, des appuis ratent, ou "Aide-moi" est pressé), l'appli le compte pour que nous puissions la rendre plus claire : quelle leçon et quelle étape, pourquoi, et s'il s'agissait d'un téléphone ou d'un ordinateur. Il n'y a ni nom, ni compte, ni identifiant d'appareil, ni rien de ton morceau, donc cela ne peut être relié à personne.</p>
+<h2>Enfants</h2>
+<p>Vamola ne demande pas d'informations personnelles aux enfants. Un parent ou un enseignant peut ouvrir <b>👪 Adultes</b> (avec son propre code PIN) pour masquer la connexion et les formulaires de retour, couper le micro et fixer une limite de temps par jour. Le micro n'est utilisé que quand tu choisis d'enregistrer, et les enregistrements restent sur l'appareil.</p><p>Les comptes sont facultatifs. Si tu as moins de 15 ans (ou l'âge fixé par ton pays, entre 13 et 16 ans), demande à un parent avant d'en créer un.</p><p><b>La lecture à voix haute</b> utilise la voix intégrée à ton appareil. Seul le texte des leçons est lu, jamais ce que tu tapes. Si un appareil n'a pas de voix à lui, la voix en ligne du navigateur peut être utilisée, ce qui envoie la phrase de la leçon à l'éditeur du navigateur pour qu'il la lise.</p>
+<h2>Tes droits</h2>
+<ul>
+  <li>Tu peux nous demander une copie de ce que nous avons sur toi, nous demander de le corriger ou de le supprimer. Écris-nous et nous répondrons sous un mois.</li>
+  <li>Nous n'utilisons ton adresse e-mail que pour faire fonctionner ton compte (parce que tu en as demandé un) et les rapports que pour corriger des problèmes (parce que tu nous les as envoyés).</li>
+  <li>Nous gardons un compte jusqu'à ce que tu le supprimes, et les rapports seulement le temps nécessaire pour corriger ce qu'ils décrivent.</li>
+  <li>Si tu vis dans l'UE, au Royaume-Uni ou dans un autre pays doté de lois sur la vie privée, tu peux aussi porter plainte auprès de ton autorité de protection des données (en France, la CNIL).</li>
+</ul>
+<h2>Les services que nous utilisons</h2>
+<ul>
+  <li><b>Supabase</b> stocke les comptes, les rapports et le comptage anonyme des leçons.</li>
+  <li><b>Cloudflare</b> héberge l'appli.</li>
+  <li>Ces services peuvent traiter des données hors de ton pays.</li>
+</ul>
+<h2>Contact</h2>
+<p>Des questions, ou pour voir ou supprimer tes données : <a href="mailto:hello@vamola.io">hello@vamola.io</a></p>
+</section>
+<section lang="de" data-lang="de" hidden>
+<h1>Datenschutz</h1>
+<p class="dim">Vamola bringt allen bei, Musik zu machen, von kleinen Kindern bis zu Erwachsenen. Die App ist so gebaut, dass sie so wenig wie möglich sammelt. Zuletzt aktualisiert: November 2026.</p>
+<h2>Kurz gesagt</h2>
+<ul>
+  <li>Deine Songs, Sounds und dein Fortschritt bleiben <b>auf deinem Gerät</b>.</li>
+  <li>Du brauchst kein Konto. Wenn du eins anlegst, speichern wir deine E-Mail-Adresse, damit du dich anmelden kannst.</li>
+  <li>Keine Werbung, kein Tracking, kein Verkauf und keine Weitergabe deiner Daten.</li>
+  <li>Kinder können Vamola nutzen, ohne persönliche Daten anzugeben.</li>
+</ul>
+<h2>Was auf deinem Gerät bleibt</h2>
+<ul>
+  <li>Deine Songs (automatisch gespeichert, während du arbeitest), Backups, deine eigenen Sounds und Aufnahmen.</li>
+  <li>Dein Fortschritt: Lektionen, Sterne, XP, die Serie der Tages-Challenge, Übungsminuten und die Lektionsschritte, die schwierig für dich waren.</li>
+  <li>Deine Einstellungen, auch die Sprache und die PIN für Erwachsene (verschlüsselt gespeichert, nicht als Zahl).</li>
+</ul>
+<p>Wir können nichts davon sehen. Wenn du die Daten der App oder die Website-Daten im Browser löschst, ist es weg.</p>
+<h2>Was bei uns ankommt, und nur, wenn du es willst</h2>
+<ul>
+  <li><b>Ein Konto (freiwillig).</b> Deine E-Mail-Adresse und eine Anmeldung, damit dein Konto auf bis zu 3 deiner Geräte funktioniert. Du kannst uns bitten, es zu löschen.</li>
+  <li><b>Ein Bericht (freiwillig).</b> Wenn du uns mit 🐞 ein Problem oder eine Idee schickst, bekommen wir, was du geschrieben hast, und technische Angaben zum Beheben von Fehlern: App-Version, Browser, Sprache, Bildschirmgröße, Audio-Einstellungen und neue Fehlermeldungen. Kein Audio, kein Song, kein Name.</li>
+</ul>
+<h2>Anonyme Lektions-Zählung</h2>
+<p>Wenn ein Lektionsschritt schwer ist (er dauert lange, Tipps gehen daneben oder "Hilf mir" wird gedrückt), zählt die App das, damit wir den Schritt klarer machen können: welche Lektion und welcher Schritt, warum, und ob es ein Handy oder ein Computer war. Es gibt keinen Namen, kein Konto, keine Geräte-ID und nichts aus deinem Song, also lässt es sich niemandem zuordnen.</p>
+<h2>Kinder</h2>
+<p>Vamola fragt Kinder nicht nach persönlichen Daten. Eltern oder Lehrkräfte können <b>👪 Erwachsene</b> öffnen (mit ihrer eigenen PIN), um Anmeldung und Feedback-Formulare auszublenden, das Mikrofon auszuschalten und ein tägliches Zeitlimit festzulegen. Das Mikrofon wird nur benutzt, wenn du aufnehmen willst, und Aufnahmen bleiben auf dem Gerät.</p><p>Konten sind freiwillig. Wenn du jünger als 16 bist (oder als das Alter, das dein Land festlegt, zwischen 13 und 16), frag deine Eltern, bevor du eins anlegst.</p><p><b>Vorlesen</b> nutzt die Stimme deines Geräts. Vorgelesen wird nur Lektionstext, nie etwas, das du eintippst. Hat ein Gerät keine eigene Stimme, kann die Online-Stimme des Browsers benutzt werden; dann wird der Lektionssatz zum Vorlesen an den Browser-Hersteller geschickt.</p>
+<h2>Deine Rechte</h2>
+<ul>
+  <li>Du kannst eine Kopie dessen verlangen, was wir über dich gespeichert haben, und verlangen, dass wir es berichtigen oder löschen. Schreib uns, wir antworten innerhalb eines Monats.</li>
+  <li>Wir nutzen deine E-Mail-Adresse nur, um dein Konto zu betreiben (weil du eins wolltest), und Berichte nur, um Probleme zu beheben (weil du sie geschickt hast).</li>
+  <li>Wir behalten ein Konto, bis du es löschst, und Berichte nur so lange, wie wir sie zum Beheben brauchen.</li>
+  <li>Wenn du in der EU, im Vereinigten Königreich oder einem anderen Land mit Datenschutzgesetzen lebst, kannst du dich auch bei deiner Datenschutzbehörde beschweren.</li>
+</ul>
+<h2>Die Dienste, die wir nutzen</h2>
+<ul>
+  <li><b>Supabase</b> speichert Konten, Berichte und die anonyme Lektions-Zählung.</li>
+  <li><b>Cloudflare</b> hostet die App.</li>
+  <li>Diese Dienste können Daten außerhalb deines Landes verarbeiten.</li>
+</ul>
+<h2>Kontakt</h2>
+<p>Fragen, oder um deine Daten zu sehen oder zu löschen: <a href="mailto:hello@vamola.io">hello@vamola.io</a></p>
+</section>
 </main>
+<script>
+(function () {
+  var have = ['en', 'es', 'pt', 'fr', 'de'];
+  function ok(l) { return l && have.indexOf(l) >= 0 ? l : null; }
+  var want = ok(new URLSearchParams(location.search).get("lang"));
+  if (!want) try { want = ok(localStorage.getItem("vamola.lang")); } catch (e) {}
+  if (!want) (navigator.languages || [navigator.language || "en"]).some(function (l) { return (want = ok(String(l).slice(0, 2).toLowerCase())); });
+  want = want || "en";
+  document.documentElement.lang = want;
+  document.querySelectorAll("section[data-lang]").forEach(function (s) { s.hidden = s.dataset.lang !== want; });
+  document.querySelectorAll("nav a").forEach(function (a) { if (a.dataset.pick === want) a.setAttribute("aria-current", "true"); });
+  var h = document.querySelector("section[data-lang='" + want + "'] h1");
+  if (h) document.title = h.textContent + " · Vamola";
+})();
+</script>
 </body>
 </html>
